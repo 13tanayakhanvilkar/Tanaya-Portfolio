@@ -349,13 +349,6 @@ main {
    PROJECT METRICS
    =============================== */
 
-.project-metrics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 80px; /* add this to increase space below metrics */
-}
 
 /* Make metric cards larger and more spacious */
 .metric-card {
@@ -389,12 +382,6 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 24px;
   margin-top: 40px;
-}
-
-
-.metric-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .metric-title {
@@ -505,7 +492,7 @@ main {
     perspective(1200px)
     translateY(-28px)
     translateZ(80px)
-    scale(1.18);
+    scale(1.1);
 
   box-shadow:
     0 45px 90px rgba(0,0,0,0.45),
@@ -1443,12 +1430,6 @@ main {
 
 /* Hover effect */
 .overview-images img:hover {
-  transform: translateY(-8px) scale(1.04);
-  box-shadow: 0 28px 55px rgba(0,0,0,0.2);
-}
-
-/* Hover effect */
-.overview-images img:hover {
   transform: translateY(-6px) scale(1.05);
   box-shadow: 0 20px 45px rgba(0,0,0,0.18);
 }
@@ -1489,43 +1470,5 @@ main {
     border-color: rgba(0,0,0,0.25);
 }
 
-/* Mobile friendly */
-@media (max-width: 768px) {
-    .badge-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
-.detail-aside {
-    display: flex;              /* horizontal layout */
-    gap: 0;                     /* remove default gaps */
-    justify-content: space-between; /* equal spacing between blocks */
-    width: 100%;                /* occupy full parent width */
-    flex-wrap: wrap;            /* wrap on smaller screens */
-}
-
-.detail-block {
-    flex: 1;                    /* each block takes equal space */
-    text-align: center;         /* heading on top, info below */
-    padding: 0 10px;            /* optional padding inside each block */
-}
-
-.timeline-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 15px;
-}
-
-.timeline-block {
-    flex: 1;
-    text-align: center;
-}
-
-.comparison-timeline {
-    font-size: 14px;
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 8px;
-}
 
