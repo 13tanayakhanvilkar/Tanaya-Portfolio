@@ -26,8 +26,9 @@ document.addEventListener('keydown', event => {
 // ========================
 const observerOptions = {
   threshold: 0.15,
-  rootMargin: '0px 0px -80px 0px'
+  rootMargin: '0px 0px -120px 0px'
 };
+
 
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -54,14 +55,16 @@ const animateChildren = section => {
     child.style.transform = 'translateY(20px)';
     child.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
 
-    setTimeout(() => {
-      if (section.classList.contains('visible')) {
+    // Immediately animate if section is visible
+    if (section.classList.contains('visible')) {
+      requestAnimationFrame(() => {
         child.style.opacity = '1';
         child.style.transform = 'translateY(0)';
-      }
-    }, 100);
+      });
+    }
   });
 };
+
 
 document.querySelectorAll('.section').forEach(section => {
   const childObserver = new IntersectionObserver(entries => {
@@ -70,10 +73,11 @@ document.querySelectorAll('.section').forEach(section => {
         animateChildren(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0, rootMargin: '0px 0px -50px 0px' });
 
   childObserver.observe(section);
 });
+
 
 // ========================
 // CUSTOM CURSOR
@@ -166,3 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+window.addEventListener('load', () => {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('visible');
+  });
+});
