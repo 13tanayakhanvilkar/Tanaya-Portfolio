@@ -2508,3 +2508,13 @@ main {
   border-top: none !important;
   padding-top: 0;
 }
+
+
+.update-note {
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+
+  text-align: center;
+}
