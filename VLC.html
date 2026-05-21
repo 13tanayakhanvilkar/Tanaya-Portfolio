@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="nav-work.css" />
 </head>
 <body>
   <div class="custom-cursor" aria-hidden="true">
@@ -30,7 +31,24 @@
       <a href="index.html#about">About</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#skills">Skills</a>
-      <a href="index.html#work">Work</a>
+      <div class="nav-item-work">
+        <a href="index.html#work" class="nav-work-link" aria-haspopup="true" aria-controls="nav-work-menu" aria-expanded="false">
+          Work
+          <span class="nav-work-caret" aria-hidden="true"></span>
+        </a>
+        <div class="nav-work-menu" id="nav-work-menu" role="menu" aria-label="Project pages">
+          <a href="JioHotstar.html" class="nav-work-menu-item" role="menuitem">JioHotstar Project</a>
+          <p class="nav-work-menu-heading" role="presentation">SEO Case Studies</p>
+          <a href="Colorbar.html" class="nav-work-menu-item" role="menuitem">Colorbar — SEO</a>
+          <a href="Orra.html" class="nav-work-menu-item" role="menuitem">Orra — SEO</a>
+          <a href="VLC.html" class="nav-work-menu-item" role="menuitem">VLC Spices — SEO</a>
+          <a href="Shramdaan.html" class="nav-work-menu-item" role="menuitem">Shramdaan — SEO</a>
+          <a href="Royaloak.html" class="nav-work-menu-item" role="menuitem">Royal Oak — SEO</a>
+          <a href="index.html" class="nav-work-menu-item" role="menuitem">Portfolio Website</a>
+          <!-- Future projects: <a href="TaskManager.html" class="nav-work-menu-item" role="menuitem">Task Manager Project</a> -->
+          <a href="index.html#work" class="nav-work-menu-item nav-work-menu-all" role="menuitem">View All Projects</a>
+        </div>
+      </div>
       <a href="index.html#interests">Hobbies</a>
       <a href="index.html#extracurricular">Extracurricular</a>
       <a href="index.html#contact">Contact</a>
@@ -151,6 +169,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="nav-work.js"></script>
 </body>
 </html>
 
