@@ -80,35 +80,47 @@ document.querySelectorAll('.section').forEach(section => {
 
 
 // ========================
-// CUSTOM CURSOR
+// CUSTOM CURSOR (instant, GPU-accelerated)
 // ========================
-const cursor = document.querySelector('.custom-cursor');
-const ring = document.querySelector('.cursor-ring');
+(() => {
+  const cursor = document.querySelector('.custom-cursor');
+  if (!cursor) return;
 
-let mouseX = 0;
-let mouseY = 0;
-let ringX = 0;
-let ringY = 0;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const isLowPower =
+    typeof navigator.hardwareConcurrency === 'number' &&
+    navigator.hardwareConcurrency > 0 &&
+    navigator.hardwareConcurrency < 4;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.opacity = '1';
-});
+  if (prefersReducedMotion || isCoarsePointer || isLowPower) {
+    document.body.classList.add('native-cursor');
+    cursor.remove();
+    return;
+  }
 
-const animateCursor = () => {
-  ringX += (mouseX - ringX) * 0.15;
-  ringY += (mouseY - ringY) * 0.15;
-  cursor.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-  requestAnimationFrame(animateCursor);
-};
+  document.addEventListener(
+    'mousemove',
+    e => {
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      if (cursor.style.opacity !== '1') cursor.style.opacity = '1';
+    },
+    { passive: true }
+  );
 
-animateCursor();
+  document.addEventListener(
+    'mouseleave',
+    () => {
+      cursor.style.opacity = '0';
+    },
+    { passive: true }
+  );
 
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-});
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'), { passive: true });
+    el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'), { passive: true });
+  });
+})();
 
 // ========================
 // METRIC COUNTER ANIMATION
