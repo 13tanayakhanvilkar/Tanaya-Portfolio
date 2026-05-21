@@ -1,0 +1,380 @@
+/* JioHotstar — Ad Operations Dashboard (page-scoped) */
+
+.jio-ops-dashboard {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
+.jio-ops-dashboard .jio-dash-panel {
+  position: relative;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: clamp(36px, 5vw, 56px);
+  border-radius: calc(var(--radius) + 4px);
+  background: linear-gradient(145deg, #0c0e14 0%, #12151f 42%, #161a28 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  color: #e8eaef;
+}
+
+.jio-ops-dashboard .jio-dash-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.jio-ops-dashboard .jio-dash-panel::after {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18), transparent 68%);
+  pointer-events: none;
+}
+
+.jio-ops-dashboard .jio-dash-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.jio-ops-dashboard .jio-dash-header {
+  margin-bottom: clamp(32px, 4vw, 48px);
+  opacity: 1;
+  transform: none;
+}
+
+.jio-ops-dashboard .jio-dash-header .eyebrow {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.jio-ops-dashboard .jio-dash-header h2 {
+  margin: 12px 0 14px;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.jio-ops-dashboard .jio-dash-lead {
+  max-width: 62ch;
+  margin: 0;
+  font-size: var(--text-md);
+  line-height: 1.65;
+  color: rgba(232, 234, 239, 0.72);
+}
+
+.jio-ops-dashboard .jio-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.jio-ops-dashboard .jio-kpi-card {
+  position: relative;
+  padding: 22px 20px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.jio-ops-dashboard.visible .jio-kpi-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(1) { transition-delay: 0.05s; }
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(2) { transition-delay: 0.1s; }
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(3) { transition-delay: 0.15s; }
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(4) { transition-delay: 0.2s; }
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(5) { transition-delay: 0.25s; }
+.jio-ops-dashboard.visible .jio-kpi-card:nth-child(6) { transition-delay: 0.3s; }
+
+.jio-ops-dashboard .jio-kpi-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 28px rgba(99, 102, 241, 0.12);
+}
+
+.jio-ops-dashboard .jio-kpi-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(56, 189, 248, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #c7d2fe;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.jio-ops-dashboard .jio-kpi-card:hover .jio-kpi-icon {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+}
+
+.jio-ops-dashboard .jio-kpi-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.jio-ops-dashboard .jio-kpi-value {
+  margin: 0 0 6px;
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.jio-ops-dashboard .jio-kpi-value .jio-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+.jio-ops-dashboard .jio-kpi-label {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: rgba(232, 234, 239, 0.62);
+}
+
+.jio-ops-dashboard .jio-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: clamp(32px, 4vw, 44px);
+}
+
+.jio-ops-dashboard .jio-highlight-card {
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+
+.jio-ops-dashboard .jio-highlight-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.jio-ops-dashboard .jio-highlight-card h3 {
+  margin: 0 0 8px;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #fff;
+}
+
+.jio-ops-dashboard .jio-highlight-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: rgba(232, 234, 239, 0.68);
+}
+
+.jio-ops-dashboard .jio-workflow-heading {
+  margin: 0 0 20px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.jio-ops-dashboard .jio-workflow {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: clamp(28px, 4vw, 36px);
+  padding-bottom: 4px;
+}
+
+.jio-ops-dashboard .jio-flow-step {
+  position: relative;
+  text-align: center;
+  padding: 16px 10px 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.jio-ops-dashboard .jio-flow-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  width: 12px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.5), rgba(56, 189, 248, 0.35));
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.jio-ops-dashboard .jio-flow-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.jio-ops-dashboard .jio-flow-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  color: #c7d2fe;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.jio-ops-dashboard .jio-flow-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.jio-ops-dashboard .jio-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.jio-ops-dashboard .jio-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.jio-ops-dashboard .jio-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 139, 250, 0.45);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .jio-ops-dashboard .jio-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jio-ops-dashboard .jio-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .jio-ops-dashboard .jio-workflow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .jio-ops-dashboard .jio-flow-step:nth-child(4)::after {
+    display: none;
+  }
+
+  .jio-ops-dashboard .jio-flow-step:nth-child(7)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .jio-ops-dashboard .jio-dash-panel {
+    padding: 28px 20px;
+    border-radius: var(--radius);
+  }
+
+  .jio-ops-dashboard .jio-kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .jio-ops-dashboard .jio-workflow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .jio-ops-dashboard .jio-flow-step {
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+  }
+
+  .jio-ops-dashboard .jio-flow-num {
+    margin: 0;
+    grid-row: 1 / span 2;
+  }
+
+  .jio-ops-dashboard .jio-flow-step:not(:last-child)::after {
+    display: none;
+  }
+
+  .jio-ops-dashboard .jio-flow-label {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jio-ops-dashboard .jio-kpi-card,
+  .jio-ops-dashboard .jio-kpi-card:hover,
+  .jio-ops-dashboard .jio-kpi-icon,
+  .jio-ops-dashboard .jio-flow-step,
+  .jio-ops-dashboard .jio-pill,
+  .jio-ops-dashboard .jio-highlight-card {
+    transition: none;
+    transform: none;
+  }
+
+  .jio-ops-dashboard .jio-kpi-card {
+    opacity: 1;
+  }
+}
