@@ -16,7 +16,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="nav-work.css" />
+  <link rel="stylesheet" href="jiohotstar-dashboard.css" />
   <style>
+    /* JioHotstar — remove divider above Approach & Outcome only */
+    .section.seo-badges {
+      border-top: none;
+    }
+
     /* JioHotstar detail page — logo cloud (page-scoped) */
     .logo-cloud-section .section-header {
       margin-bottom: 28px;
@@ -90,7 +97,24 @@
       <a href="index.html#about">About</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#skills">Skills</a>
-      <a href="index.html#work">Work</a>
+      <div class="nav-item-work">
+        <a href="index.html#work" class="nav-work-link" aria-haspopup="true" aria-controls="nav-work-menu" aria-expanded="false">
+          Work
+          <span class="nav-work-caret" aria-hidden="true"></span>
+        </a>
+        <div class="nav-work-menu" id="nav-work-menu" role="menu" aria-label="Project pages">
+          <a href="JioHotstar.html" class="nav-work-menu-item" role="menuitem">JioHotstar Project</a>
+          <p class="nav-work-menu-heading" role="presentation">SEO Case Studies</p>
+          <a href="Colorbar.html" class="nav-work-menu-item" role="menuitem">Colorbar — SEO</a>
+          <a href="Orra.html" class="nav-work-menu-item" role="menuitem">Orra — SEO</a>
+          <a href="VLC.html" class="nav-work-menu-item" role="menuitem">VLC Spices — SEO</a>
+          <a href="Shramdaan.html" class="nav-work-menu-item" role="menuitem">Shramdaan — SEO</a>
+          <a href="Royaloak.html" class="nav-work-menu-item" role="menuitem">Royal Oak — SEO</a>
+          <a href="index.html" class="nav-work-menu-item" role="menuitem">Portfolio Website</a>
+          <!-- Future projects: <a href="TaskManager.html" class="nav-work-menu-item" role="menuitem">Task Manager Project</a> -->
+          <a href="index.html#work" class="nav-work-menu-item nav-work-menu-all" role="menuitem">View All Projects</a>
+        </div>
+      </div>
       <a href="index.html#interests">Hobbies</a>
       <a href="index.html#extracurricular">Extracurricular</a>
       <a href="index.html#contact">Contact</a>
@@ -239,6 +263,96 @@
       </div>
     </section>
 
+    <section class="section jio-ops-dashboard" aria-labelledby="jio-dashboard-title">
+      <div class="jio-dash-panel">
+        <div class="jio-dash-inner">
+          <div class="section-header jio-dash-header">
+            <p class="eyebrow">Operational Impact</p>
+            <h2 id="jio-dashboard-title">Campaign Performance Snapshot</h2>
+            <p class="jio-dash-lead">Delivered precise campaign execution and quality control across high-volume IPL and World Cup advertising campaigns during peak live-streaming events.</p>
+          </div>
+
+          <div class="jio-kpi-grid" role="list" aria-label="Key performance metrics">
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l3-5 3 3 5-8 2 3"/></svg>
+              </div>
+              <p class="jio-kpi-value"><span class="jio-counter" data-jio-count="1500" data-jio-suffix="+">0</span> Campaigns Managed</p>
+              <p class="jio-kpi-label">Managed end-to-end across live sports inventory</p>
+            </article>
+
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l2.2 6.8H21l-5.5 4 2.1 6.7L12 16.5 6.4 20.5l2.1-6.7L3 9.8h6.8L12 3z"/></svg>
+              </div>
+              <p class="jio-kpi-value"><span class="jio-counter" data-jio-count="99" data-jio-suffix="%">0</span> QC Accuracy Rate</p>
+              <p class="jio-kpi-label">Consistent quality checks on tags, trackers, and campaign setup</p>
+            </article>
+
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <p class="jio-kpi-value">Multi-format</p>
+              <p class="jio-kpi-label">Video, display, and hybrid ad formats across campaign types</p>
+            </article>
+
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M10 9.5v5l4.5-2.5-4.5-2.5z"/></svg>
+              </div>
+              <p class="jio-kpi-value">OTT + Video + Display</p>
+              <p class="jio-kpi-label">Cross-channel delivery aligned to platform and audience context</p>
+            </article>
+
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+              </div>
+              <p class="jio-kpi-value">Fast Turnaround</p>
+              <p class="jio-kpi-label">Rapid execution windows during live match-day campaign cycles</p>
+            </article>
+
+            <article class="jio-kpi-card" role="listitem">
+              <div class="jio-kpi-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h14"/></svg>
+              </div>
+              <p class="jio-kpi-value">High-volume Handling</p>
+              <p class="jio-kpi-label">Reliable ops throughput during IPL, ICC, and peak traffic events</p>
+            </article>
+          </div>
+
+          <div class="jio-highlights" aria-label="Achievement highlights">
+            <div class="jio-highlight-card">
+              <h3>Campaign Execution at Scale</h3>
+              <p>Coordinated large brand portfolios with structured workflows, clear ownership, and disciplined go-live readiness.</p>
+            </div>
+            <div class="jio-highlight-card">
+              <h3>Quality-First Delivery</h3>
+              <p>Maintained rigorous pre-live QC on creatives, landing pages, trackers, and ad-server configuration.</p>
+            </div>
+            <div class="jio-highlight-card">
+              <h3>Operational Efficiency</h3>
+              <p>Streamlined cross-team handoffs between sales ops, editors, and internal stakeholders for faster turnaround.</p>
+            </div>
+          </div>
+
+          <h3 class="jio-workflow-heading">Campaign Execution Workflow</h3>
+          <div class="jio-workflow" aria-label="Campaign execution process">
+            <div class="jio-flow-step"><span class="jio-flow-num">1</span><p class="jio-flow-label">Campaign Brief</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">2</span><p class="jio-flow-label">Ad Setup</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">3</span><p class="jio-flow-label">Tag Validation</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">4</span><p class="jio-flow-label">Quality Check</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">5</span><p class="jio-flow-label">Go Live</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">6</span><p class="jio-flow-label">Monitoring</p></div>
+            <div class="jio-flow-step"><span class="jio-flow-num">7</span><p class="jio-flow-label">Reporting</p></div>
+          </div>
+
+         
+        </div>
+      </div>
+    </section>
+
     <section class="section seo-badges">
       <div class="badge-grid">
         <div class="seo-badge">
@@ -268,5 +382,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="nav-work.js"></script>
+  <script src="jiohotstar-dashboard.js"></script>
 </body>
 </html>
