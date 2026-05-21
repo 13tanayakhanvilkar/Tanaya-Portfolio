@@ -2511,10 +2511,84 @@ main {
 
 
 .update-note {
-  background: #111;
-  color: #fff;
+  position: relative;
+  overflow: hidden;
   font-size: 14px;
   letter-spacing: 0.5px;
-
   text-align: center;
+  color: #2a2833;
+  box-shadow: 0 2px 14px rgba(58, 48, 72, 0.1);
 }
+
+.update-note::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    #c4b6d8 0%,
+    #d2adc4 18%,
+    #a8b6d4 36%,
+    #b6a0c8 54%,
+    #d4a4b4 72%,
+    #9eb0d4 88%,
+    #c4b6d8 100%
+  );
+  background-size: 320% 100%;
+  animation: update-note-gradient 22s ease-in-out infinite;
+}
+
+.update-note::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(255, 255, 255, 0.04) 42%,
+    rgba(255, 255, 255, 0.14) 100%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: update-note-shimmer 16s ease-in-out infinite;
+}
+
+@keyframes update-note-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes update-note-shimmer {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .update-note::before,
+  .update-note::after {
+    animation: none;
+  }
+
+  .update-note::before {
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+  }
+
+  .update-note::after {
+    opacity: 0.7;
+  }
+}
+
