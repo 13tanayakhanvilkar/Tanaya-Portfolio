@@ -1,16 +1,16 @@
 /* JioHotstar — Ad Operations Dashboard (page-scoped) */
 
 .jio-ops-dashboard {
-  --jio-surface: #3a437b;
-  --jio-surface-deep: #14182f;
+  --jio-surface: #ffd1f0;
+  --jio-surface-deep: #4f5264;
   --jio-surface-light: #2a2250;
 
-  --jio-text: #ffffff;
-  --jio-text-soft: #ffffff;
-  --jio-text-muted: #ffffff;
+  --jio-text: #000000;
+  --jio-text-soft: #000000;
+  --jio-text-muted: #000000;
 
-  --jio-accent: #7c5cff;
-  --jio-accent-soft: #ff4fd8;
+  --jio-accent: #0d0336;
+  --jio-accent-soft: #fffdff;
 
   --jio-card: rgba(255, 255, 255, 0.08);
   --jio-card-hover: rgba(255, 255, 255, 0.12);
