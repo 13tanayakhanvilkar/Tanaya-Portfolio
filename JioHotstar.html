@@ -18,69 +18,12 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="nav-work.css" />
   <link rel="stylesheet" href="jiohotstar-dashboard.css" />
+  <link rel="stylesheet" href="jiohotstar-logos.css" />
+  <link rel="stylesheet" href="responsive.css" />
   <style>
     /* JioHotstar — remove divider above Approach & Outcome only */
     .section.seo-badges {
       border-top: none;
-    }
-
-    /* JioHotstar detail page — logo cloud (page-scoped) */
-    .logo-cloud-section .section-header {
-      margin-bottom: 28px;
-    }
-
-    .logo-cloud {
-      position: relative;
-      max-width: 1250px;
-      margin: 0 auto;
-      height: 400px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .logo-cloud::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(closest-side at 30% 30%, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
-      pointer-events: none;
-    }
-
-    .logo-cloud img {
-      position: absolute;
-      left: var(--x);
-      top: var(--y);
-      width: var(--w);
-      height: var(--h);
-      transform: translate(-50%, -50%) rotate(var(--r));
-      object-fit: contain;
-      opacity: 0.92;
-      filter: saturate(0.98);
-      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      will-change: transform, filter;
-      z-index: 1;
-      pointer-events: auto;
-    }
-
-    .logo-cloud img:hover {
-      transform: translate(-50%, -50%) rotate(var(--r)) scale(1.18);
-      opacity: 1;
-      filter: brightness(1.08) drop-shadow(0 12px 22px rgba(0, 0, 0, 0.14));
-      z-index: 10;
-    }
-
-    @media (max-width: 768px) {
-      .logo-cloud {
-        height: 260px;
-      }
-
-      /* Reduce clutter on mobile */
-      .logo-cloud img:nth-child(n + 11) {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -92,6 +35,11 @@
 
   <header class="navbar">
     <div class="nav-brand">Tanaya Khanvilkar</div>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#about">About</a>
