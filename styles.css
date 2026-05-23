@@ -69,6 +69,7 @@
   --metric-pad-y: 70px;
   --metric-pad-x: 60px;
   --metric-value: 28px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 html {
@@ -1991,16 +1992,6 @@ main {
     height: 280px;
   }
 
-  /* Badge Grid Mobile */
-  .badge-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .seo-badge {
-    padding: 24px 20px;
-  }
-
   /* Breadcrumbs Mobile */
   .breadcrumbs-row {
     padding-left: 20px;
@@ -2131,68 +2122,98 @@ body.native-cursor {
 }
 
 .seo-badges {
-    padding-top: 0;
+  padding-top: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .badge-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .seo-badge {
-    padding: 28px 30px;
-    border-radius: 18px;
-    background: var(--card);
-    border: 1px solid rgba(0,0,0,0.12);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    cursor: default;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 28px 30px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: default;
+  box-sizing: border-box;
 }
 
-
 .seo-badge h3 {
-    margin-bottom: 12px;
+  margin: 0 0 12px;
+  font-size: clamp(1.125rem, 2.2vw, 1.35rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .seo-badge p {
-    color: var(--muted);
-    line-height: 1.6;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.9375rem, 1.8vw, 1rem);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Hover effect */
 .seo-badge:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
-    border-color: rgba(0,0,0,0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
-/* MOBILE STICKY NAVBAR */
-@media (max-width: 1023px) {
-  .navbar {
-    position: fixed;      /* Stick to top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;         /* Above everything */
-    background: #f5f5f3;  /* or your navbar bg color */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* Approach & Outcome — tablet: stack for readability */
+@media (max-width: 900px) {
+  .badge-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(18px, 4vw, 24px);
   }
 
-  body {
-    padding-top: 60px;   /* Adjust to navbar height so content isn't hidden */
-  }
-
-  .nav-links {
-    display: none;        /* Hide by default on mobile */
-    flex-direction: column;
-    background: #f5f5f3;
-    width: 100%;
-  }
-
-  .mobile-menu-toggle[aria-expanded="true"] + .nav-links {
-    display: flex;        /* Show nav when toggle clicked */
+  .seo-badges {
+    padding-inline: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .seo-badge {
+    padding: clamp(20px, 4.5vw, 24px) clamp(18px, 4vw, 22px);
+  }
+
+  .seo-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .seo-badge h3 {
+    font-size: clamp(1.1rem, 4.5vw, 1.25rem);
+  }
+
+  .seo-badge p {
+    font-size: clamp(0.9rem, 3.6vw, 1rem);
+    line-height: 1.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seo-badge {
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .seo-badge:hover {
+    transform: none;
+  }
+}
+
+/* Mobile nav drawer: see responsive.css (max-width: 1023px) */
 
 /* ============================================================
    DESKTOP REFINEMENT — proportional scale above 1200px only
