@@ -1,0 +1,155 @@
+/* JioHotstar — brand logo cloud (responsive; absolute cloud ≥1025px) */
+
+.logo-cloud-section {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.logo-cloud-section .section-header {
+  margin-bottom: 28px;
+}
+
+/* —— Tablet & mobile / laptop: responsive wrap grid —— */
+.logo-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: clamp(14px, 3vw, 20px);
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  max-width: min(1250px, 100%);
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 28px);
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.logo-cloud::before {
+  display: none;
+}
+
+.logo-cloud img {
+  position: static;
+  left: auto;
+  top: auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 48px;
+  margin: 0;
+  transform: rotate(var(--r, 0deg));
+  object-fit: contain;
+  opacity: 0.92;
+  filter: saturate(0.98);
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.logo-cloud img:hover {
+  transform: rotate(var(--r, 0deg)) scale(1.06);
+  opacity: 1;
+  filter: brightness(1.06) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.1));
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .logo-cloud-section .section-header {
+    margin-bottom: 20px;
+  }
+
+  .logo-cloud-section .section-header h2 {
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .logo-cloud {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 12px 10px;
+    padding: 16px 14px;
+  }
+
+  .logo-cloud img {
+    max-width: min(100%, 76px);
+    max-height: 40px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .logo-cloud {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 16px 14px;
+    padding: 22px 18px;
+  }
+
+  .logo-cloud img {
+    max-width: min(100%, 104px);
+    max-height: 52px;
+  }
+}
+
+/* —— Desktop: absolute-position cloud (original layout) —— */
+@media (min-width: 1025px) {
+  .logo-cloud {
+    display: block;
+    position: relative;
+    container-type: inline-size;
+    width: 100%;
+    max-width: 1350px;
+    padding: 0;
+    height: 500px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .logo-cloud::before {
+    display: block;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(closest-side at 30% 30%, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .logo-cloud img {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    /* Scale with container so logos never exceed bounds on narrower viewports */
+    width: min(var(--w), 16cqi);
+max-height: min(var(--h), 25cqi);
+max-width: min(var(--w), 25cqi);
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+  }
+
+  .logo-cloud img:hover {
+    transform: translate(-50%, -50%) scale(1.6);
+    filter: brightness(1.06) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.12));
+    z-index: 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-cloud img {
+    transition: opacity 0.2s ease;
+  }
+
+  .logo-cloud img:hover {
+    transform: rotate(var(--r, 0deg));
+  }
+
+  @media (min-width: 1025px) {
+    .logo-cloud img:hover {
+      transform: translate(-50%, -50%) rotate(var(--r));
+    }
+  }
+}
